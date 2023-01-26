@@ -18,7 +18,7 @@ import javax.swing.JPanel;
 
 public class ImageMove extends JFrame implements ActionListener, WindowListener,KeyListener{
 	private JButton resetBtn,leftBtn,upBtn,downBtn,rigthBtn; //생성을 안해서 기본적으로 null값
-	int x =230, y=255;
+	int x =0, y=0;
 	
 	public void init() {
 		//버튼생성
@@ -65,7 +65,7 @@ public class ImageMove extends JFrame implements ActionListener, WindowListener,
 		super.paint(g);//부모에있는 페인트메소드를 불러준다.이걸줘야지 버튼하고 이미지가 같이보인다
 		
 		Toolkit t = Toolkit.getDefaultToolkit(); 
-		Image img=t.getImage("car.png");
+		Image img=t.getImage("siro.gif");
 		
 		//이미지 위치
 		g.drawImage(img,
@@ -78,33 +78,33 @@ public class ImageMove extends JFrame implements ActionListener, WindowListener,
 	public void actionPerformed(ActionEvent e) {
 		System.out.println("x = " + x + " y = " + y);
 		if(e.getSource() == resetBtn) {	
-			x=230;
-			y=255;
+			x=0;
+			y=0;
 //			repaint();
 		
 		}else if(e.getSource()==leftBtn) {
 			x -= 50; //x=x-10
 //			repaint();
 			
-			if(x<-30) x=480;
+			if(x<-250) x=480;
 			
 		}else if(e.getSource()==rigthBtn) {
 			x += 50;
 //			repaint();
 			
-			if(x> 480) x=-30;
+			if(x> 480) x=-250;
 			
 		}else if(e.getSource()==upBtn) {
 			y -= 50;
 //			repaint();
 			
-			if(y<30) y=480;
+			if(y<-250) y=480;
 			
 		}else if(e.getSource()==downBtn) {
 			y += 50;
 //			repaint();
 			
-			if(y>480) y=30;
+			if(y>480) y=-250;
 		};
 			repaint();  //하나하나있는것보다 그냥 밖에 한번 있어도 돌아간다.
 			
@@ -157,6 +157,7 @@ public class ImageMove extends JFrame implements ActionListener, WindowListener,
 
 	@Override
 	public void keyTyped(KeyEvent e) { //키보드의 타입을 알아보는거
+		// TODO Auto-generated method stub
 		
 	};
 
@@ -168,7 +169,7 @@ public class ImageMove extends JFrame implements ActionListener, WindowListener,
 	     if(key == KeyEvent.VK_UP) y += 50;
 	     if(key == KeyEvent.VK_DOWN) y -= 50;
 		
-	};
+		};
 		
 //		if( e.getKeyCode() == 37 ) System.out.println( "왼족 누름");
 //		else if( e.getKeyCode() == 38 ) System.out.println( "위 누름");
@@ -178,6 +179,7 @@ public class ImageMove extends JFrame implements ActionListener, WindowListener,
 
 	@Override
 	public void keyReleased(KeyEvent e) { //키보드에서 손을뗄때
+		// TODO Auto-generated method stub
 		
 	};
 
